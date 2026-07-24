@@ -5,8 +5,21 @@ import java.awt.Point;
  * dir is the direction
  */
 public class Move{
-    Point k1;
-    Point k2;
-    Point k3;
-    Direction dir;
+    public final Point s1;
+    public final Point s2;
+    public final Point s3;
+    public final Direction d;
+    
+    public Move(Point s1, Point s2, Point s3, Direction d){
+        this.s1 = s1;
+        this.s2 = s2;
+        this.s3 = s3;
+        this.d = d;
+    }
+
+    public int getSphereCount(){
+        if (this.s2 == null) return 1;
+        else if (this.s3 == null) return 2;
+        else return 3;
+    }
 }

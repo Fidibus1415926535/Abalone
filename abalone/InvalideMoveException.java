@@ -1,0 +1,1 @@
+public class InvalideMoveException extends Exception{}
