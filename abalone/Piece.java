@@ -1,3 +1,6 @@
+/**
+ * Represents how a field of the board is filled
+ */
 public enum Piece{
     EMPTY,
     WHITE,

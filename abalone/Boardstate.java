@@ -1,3 +1,8 @@
+/**
+ * Class Boardstate represents only one specific board state and only the board and the spheres
+ * It is one component that makes up a boardstate
+ */
+
 public class Boardstate{
     
     Piece [][] state = {
@@ -11,10 +16,6 @@ public class Boardstate{
         {Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE},
         {Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE}
     };
-
-    public Boardstate(){
-        System.out.println(toString());
-    }
 
     @Override
     public String toString(){

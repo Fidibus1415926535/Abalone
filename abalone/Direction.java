@@ -1,3 +1,6 @@
+/**
+ * Represents the direction in which spheres can be moved
+ */
 public enum Direction{
     UL, //Up left
     UR,
