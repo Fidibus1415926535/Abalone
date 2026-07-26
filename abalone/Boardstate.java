@@ -47,19 +47,20 @@ public class Boardstate{
         String s = "\n";
         for (int i = 0; i < state.length; i++){ //rows 
             s += i + ": ";
-            for (int j = 0; j < state[i].length; j++){
-                if (state[i][j] == Piece.OUT) s += " ";
-                else if (state[i][j] == Piece.EMPTY) s += "+ ";
-                else if (state[i][j] == Piece.WHITE) s += "W ";
-                else s += "B ";
+            for (Piece item : state[i]) {
+                if (null == item) {
+                    s += "B ";
+                } else {
+                    switch (item) {
+                        case OUT -> s += " ";
+                        case EMPTY -> s += "+ ";
+                        case WHITE -> s += "W ";
+                        default -> s += "B ";
+                    }
+                }
             }
             s += '\n';
         }
         return s;
-    }
-
-    private int getAbs(int value){
-        if (value < 0) return -value;
-        return value;
     }
 }

@@ -40,8 +40,9 @@ public class Game{
 
             Direction dMove = Direction.values()[sc.nextInt()];
 
-            Move move = new Move(sphereCount, new Point (x, y), dMove, dSpheres);
-
+            Move move = new Move(sphereCount, new Point (x, y), dMove, dSpheres, false);
+            System.out.println("EingabeMove: " + move);
+            move.transformToSystem();
             try {
                 board.handleMove(move);
             }

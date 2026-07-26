@@ -40,7 +40,11 @@ public class Board{
                 }
             }
         }
-        for (int i = 0; i < list.size(); i++) System.out.println(list.get(i).toString());
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).transformToInOut();
+            System.out.println(list.get(i).toString());
+            list.get(i).transformToSystem();
+        }
         return list;
     }
 
@@ -60,7 +64,7 @@ public class Board{
             Point target = new Point (p.x + o.x, p.y + o.y); //the point where the sphere will end up
             
             if (!pointOutOfBounds(target) && array[target.y][target.x] == Piece.EMPTY){
-                list.add(new Move(1, p, d, null));
+                list.add(new Move(1, p, d, null, true));
             }
         }
         return list;

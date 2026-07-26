@@ -1,0 +1,2 @@
+1: Schreibe ein Compare für moves und implementie es da wo ich überprüfe,
+ob mein Move in der Liste ist
