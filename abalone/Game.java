@@ -18,15 +18,32 @@ public class Game{
         
         while (running){
 
-            System.out.print("S1 X >>> ");
+            System.out.print("Wie viele Kugeln möchtest du ziehen? (1-3) >>> ");
+            int sphereCount = sc.nextInt();
+
+            System.out.print("Sphere1 X >>> ");
             int x = sc.nextInt();
-            System.out.print("S1 Y >>> ");
+
+            System.out.print("Sphere1 Y >>> ");
             int y = sc.nextInt();
-            System.out.print("Direction (0: UL, 1: UR, 2: L, 3: D, 4: DL, 5: DR) >>> ");
-            Direction d = Direction.values()[sc.nextInt()];
+
+            Direction dSpheres = null;
+
+            if (sphereCount != 1) {
+                System.out.print("In welche Richtung muss man von deiner ersten " +
+                "Kugel aus gehen um die anderen zu erreichen? (0: UL, 1: UR, 2: L, 3: D, 4: DL, 5: DR) >>> ");
+                dSpheres = Direction.values()[sc.nextInt()];
+            } 
+
+            System.out.print("In welche Richtung möchtest du ziehen?" + 
+            "(0: UL, 1: UR, 2: L, 3: D, 4: DL, 5: DR) >>> ");
+
+            Direction dMove = Direction.values()[sc.nextInt()];
+
+            Move move = new Move(sphereCount, new Point (x, y), dMove, dSpheres);
 
             try {
-                board.handleMove(new Move(new Point (x, y), null, null, d));
+                board.handleMove(move);
             }
             catch (InvalideMoveException e){
                 System.out.println("Dieser Move ist nicht valide");

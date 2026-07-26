@@ -56,7 +56,7 @@ public class Board{
             if (pointOutOfBounds(target)) continue;
 
             if (array[target.y][target.x] == Piece.EMPTY){
-                list.add(new Move(p, null, null, d));
+                list.add(new Move(1, p, d, null));
             }
         }
         return list;

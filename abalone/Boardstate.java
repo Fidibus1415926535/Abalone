@@ -24,13 +24,13 @@ public class Boardstate{
      * Invalide moves are sorted out during the process of Board.getMoves();
      */
     public void handleMove(Move m){
-        int count = m.getSphereCount();
+        int count = m.sphereCount;
         if (count == 1) handleMove1(m);
     }
 
     private void handleMove1(Move m){
         Point oldCoords = m.s1;
-        Point offset = m.d.getPoint();
+        Point offset = m.dMove.getPoint();
         Piece oldPiece = this.state[oldCoords.y][oldCoords.x];
         this.state[oldCoords.y][oldCoords.x] = Piece.EMPTY;
         this.state[oldCoords.y + offset.y][oldCoords.x + offset.x] = oldPiece;

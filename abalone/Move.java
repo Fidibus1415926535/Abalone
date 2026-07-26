@@ -5,21 +5,20 @@ import java.awt.Point;
  * dir is the direction
  */
 public class Move{
+    public final int sphereCount;
     public final Point s1;
-    public final Point s2;
-    public final Point s3;
-    public final Direction d;
+    public final Direction dSpheres;
+    public final Direction dMove;
     
-    public Move(Point s1, Point s2, Point s3, Direction d){
-        this.s1 = s1;
-        this.s2 = s2;
-        this.s3 = s3;
-        this.d = d;
-    }
 
-    public int getSphereCount(){
-        if (this.s2 == null) return 1;
-        else if (this.s3 == null) return 2;
-        else return 3;
+    /**
+     * Constructor
+     * dSpheres can be null if there is only one Sphere to be moved
+     */
+    public Move(int sphereCount, Point s1, Direction dMove, Direction dSpheres){
+        this.s1 = s1;
+        this.dSpheres = dSpheres;
+        this.dMove = dMove;
+        this.sphereCount = sphereCount;
     }
 }
