@@ -25,18 +25,22 @@ public class Board{
         else throw new InvalideMoveException();
     }
 
+
+    /**
+     * Adds the moves for all 1, 2 and 3 Sphere Moves together into an ArrayList
+     */
     private ArrayList<Move> getMoves(){
 
         ArrayList<Move> list = new ArrayList<>();
         Piece[][] array = state.getArray();
-
-        for (int i = 0; i < array.length; i++){ //Get all moves with 1 sphere
-            for (int j = 0; j < array[i].length; j++){
-                if ((array[i][j] == Piece.WHITE && whitesTurn )|| (array[i][j] == Piece.BLACK && !whitesTurn)){
-                    list.addAll(calculateAllMoves1(array, new Point (i, j)));
+        for (int y = 0; y < array.length; y++){ //Get all moves with 1 sphere
+            for (int x = 0; x < array[y].length; x++){
+                if ((array[y][x] == Piece.WHITE && whitesTurn ) || (array[y][x] == Piece.BLACK && !whitesTurn)){
+                    list.addAll(calculateAllMoves1(array, new Point (x, y)));
                 }
             }
         }
+        for (int i = 0; i < list.size(); i++) System.out.println(list.get(i).toString());
         return list;
     }
 
@@ -45,26 +49,28 @@ public class Board{
      * Moves that are not possible wont be added
      */
     private ArrayList<Move> calculateAllMoves1 (Piece[][] array, Point p){ 
-
+        //System.out.println(p);
         ArrayList<Move> list = new ArrayList<>();
         Direction[] directions = Direction.values();
 
         for (Direction d : directions){
-            
-            Point o = d.getPoint(); //o stands for offset
-            Point target = new Point (p.y + o.y, p.x + o.x);
-            if (pointOutOfBounds(target)) continue;
 
-            if (array[target.y][target.x] == Piece.EMPTY){
+            Point o = d.getPoint(); //o stands for offset
+
+            Point target = new Point (p.x + o.x, p.y + o.y); //the point where the sphere will end up
+            
+            if (!pointOutOfBounds(target) && array[target.y][target.x] == Piece.EMPTY){
                 list.add(new Move(1, p, d, null));
             }
         }
         return list;
     }
 
-    private boolean pointOutOfBounds(Point p){
-        if (this.state.getArray().length < p.y || p.y < 0) return true;
-        if (this.state.getArray()[p.y].length < p.x || p.x < 0) return true;
+    private boolean pointOutOfBounds(Point p) {
+        Piece[][] array = this.state.getArray();
+        if (p.y < 0 || p.y >= array.length) return true;
+        if (p.x < 0 || p.x >= array[p.y].length) return true;
+        if (array[p.y][p.x] == Piece.OUT) return true;
         return false;
     }
 

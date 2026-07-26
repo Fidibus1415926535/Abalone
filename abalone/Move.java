@@ -21,4 +21,9 @@ public class Move{
         this.dMove = dMove;
         this.sphereCount = sphereCount;
     }
+
+    @Override
+    public String toString(){
+        return "Count: " + sphereCount + " Coords [" + this.s1.x + ", " + this.s1.y + "] " + " Richtung: " + dMove;
+    }
 }

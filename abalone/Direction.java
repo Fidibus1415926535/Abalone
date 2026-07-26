@@ -5,12 +5,12 @@ import java.awt.Point;
  * named direction
  */
 public enum Direction{
-    UL(new Point(0, -1)), //Up left
-    UR(new Point(1, -1)),
+    UL(new Point(-1, -1)), //Up left
+    UR(new Point(0, -1)),
     L(new Point(-1, 0)),
     R(new Point(1, 0)),
-    DL(new Point(0, 1)),
-    DR(new Point(1, 1));
+    DL(new Point(-1, 1)),
+    DR(new Point(0, 1));
 
     private final Point p;
 

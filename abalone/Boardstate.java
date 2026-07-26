@@ -7,15 +7,17 @@ import java.awt.Point;
 public class Boardstate{
     
     private Piece [][] state = {
-        {Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK},
-        {Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK},
-        {Piece.EMPTY, Piece.EMPTY, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.EMPTY, Piece.EMPTY},
-        {Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY},
-        {Piece.EMPTY, Piece.EMPTY ,Piece.EMPTY ,Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY},
-        {Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY},
-        {Piece.EMPTY, Piece.EMPTY, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.EMPTY, Piece.EMPTY},
-        {Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE},
-        {Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE}
+        {Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT,Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.OUT, Piece.EMPTY, Piece.EMPTY, Piece.BLACK, Piece.BLACK, Piece.BLACK, Piece.EMPTY, Piece.EMPTY, Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.OUT},
+        {Piece.OUT, Piece.EMPTY, Piece.EMPTY ,Piece.EMPTY ,Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.EMPTY, Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.OUT, Piece.EMPTY, Piece.EMPTY, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.EMPTY, Piece.EMPTY, Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT,Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE, Piece.WHITE,Piece.OUT},
+        {Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT, Piece.OUT}
     };
 
     /**
@@ -43,11 +45,11 @@ public class Boardstate{
     @Override
     public String toString(){
         String s = "\n";
-        for (int i = 0; i < 9; i++){ //rows 
+        for (int i = 0; i < state.length; i++){ //rows 
             s += i + ": ";
-            for (int l = 0; l < getAbs(i + 5 - 9); l++) s += " ";// lehrzeichen am Anfang
             for (int j = 0; j < state[i].length; j++){
-                if (state[i][j] == Piece.EMPTY) s += "0 ";
+                if (state[i][j] == Piece.OUT) s += " ";
+                else if (state[i][j] == Piece.EMPTY) s += "+ ";
                 else if (state[i][j] == Piece.WHITE) s += "W ";
                 else s += "B ";
             }
