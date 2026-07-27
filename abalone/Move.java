@@ -47,14 +47,14 @@ public class Move implements Comparable<Move>{
      * Get the x offset for the transformation functions
      */
     private int getXOffset(){
-        if (this.s1.y <= 5) return 6 - this.s1.y;
-        else return this.s1.y - 4;
+        if (this.s1.y <= 5) return 6 - this.s1.y - 1;
+        else return this.s1.y - 4 - 1;
     }
 
     @Override
     public int compareTo(Move other){
         if (this.sphereCount != other.sphereCount) return 1;
-        if (this.s1.x != other.s1.x && this.s1.y != other.s1.y) return 2;
+        if (this.s1.x != other.s1.x || this.s1.y != other.s1.y) return 2;
         if (this.dSpheres != other.dSpheres) return 3;
         if (this.dMove != other.dMove) return 4;
         if (this.systemMove != other.systemMove){

@@ -130,26 +130,28 @@ public class Board{
                 }
             } else { // Push Move
                 //s1 moves first. Works because of 2nd sphere search only searches right and downwards
-                if (d == Direction.UL || d == Direction.UR || d == Direction.L){ 
+                if (d == Direction.UL || d == Direction.UR || d == Direction.L){ //Scanning from s1 
                     Point o = d.getPoint();
                     if (array[s1.y + o.y][s1.x + o.x] == Piece.EMPTY){ // empty field: Move is allowed
                         list.add(new Move(2, s1, d, connector, true));
                     } else { // not an empty filed: Move is only allowed if a push works
                         if (array[s1.y + o.y][s1.x + o.x] == Piece.BLACK && whitesTurn
                         || array[s1.y + o.y][s1.x + o.x] == Piece.WHITE && !whitesTurn){
-                            if (array[s1.y + o.y + o.y][s1.x + o.x + o.x] == Piece.EMPTY){ //needs buffer zone 
+                            if (array[s1.y + o.y + o.y][s1.x + o.x + o.x] == Piece.EMPTY
+                                || array[s2.y + o.y + o.y][s2.x + o.x + o.x] == Piece.OUT){ //needs buffer zone 
                                 list.add(new Move(2, s1, d, connector, true));
                             }
                         }
                     }
-                } else {
+                } else { // Scanning from s2
                     Point o = d.getPoint();
                     if (array[s2.y + o.y][s2.x + o.x] == Piece.EMPTY){ // empty field: Move is allowed
                         list.add(new Move(2, s1, d, connector, true));
                     } else { // not an empty filed: Move is only allowed if a push works
                         if (array[s2.y + o.y][s2.x + o.x] == Piece.BLACK && whitesTurn
                         || array[s1.y + o.y][s1.x + o.x] == Piece.WHITE && !whitesTurn){
-                            if (array[s2.y + o.y + o.y][s2.x + o.x + o.x] == Piece.EMPTY){ //needs buffer zone 
+                            if (array[s2.y + o.y + o.y][s2.x + o.x + o.x] == Piece.EMPTY
+                                || array[s2.y + o.y + o.y][s2.x + o.x + o.x] == Piece.OUT ){ //may need buffer zone 
                                 list.add(new Move(2, s1, d, connector, true));
                             }
                         }

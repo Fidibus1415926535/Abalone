@@ -1,4 +1,3 @@
-0: Puffer Zone im Board array, sodass alle suchen niemals einen leeren Index treffen, sondern immer board.out
 1: User Move anpassen und besser machen, sodass die 1 tatsächlich das erste und nicht 
 das zweite Element der Reihen ist
 2: 2Move handling einfügen
