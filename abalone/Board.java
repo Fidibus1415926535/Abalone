@@ -61,7 +61,7 @@ public class Board{
             System.out.println(list.get(i).toString());
             list.get(i).transformToSystem();
         }
-        */
+        */        
 
         return list;
     }

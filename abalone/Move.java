@@ -33,6 +33,7 @@ public class Move implements Comparable<Move>{
         if (this.systemMove){
             this.s1.x -= getXOffset();
             this.systemMove = false;
+            //System.out.println("Transforming to in out");
         }
     }
 
@@ -40,6 +41,7 @@ public class Move implements Comparable<Move>{
         if (!this.systemMove){
             this.s1.x += getXOffset();
             this.systemMove = true;
+            //System.out.println("Transforming to System");
         }
     }
 
@@ -66,6 +68,8 @@ public class Move implements Comparable<Move>{
 
     @Override
     public String toString(){
-        return "Count: " + sphereCount + " Coords [" + this.s1.x + ", " + this.s1.y + "] " + " Richtung: " + dMove;
+        return "Count: " + sphereCount 
+        + " Coords [" + this.s1.x + ", " + this.s1.y + "] " + " Richtung: " + dMove
+        + " Connector: " + this.dSpheres;
     }
 }

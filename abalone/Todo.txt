@@ -1,6 +1,4 @@
-1: User Move anpassen und besser machen, sodass die 1 tatsächlich das erste und nicht 
-das zweite Element der Reihen ist
-2: 2Move handling einfügen
+2: Direction Point offset fixen: Funktioniert im moment nur für die obere Spielfeldhälfte
 3: Tripple Move einfügen (detection und handling)
 4: Testen ob alle moves gefunden werden und richtig ausgeführt werden
 5: Stellungsevaluation
