@@ -18,11 +18,14 @@ public class Board{
 
     public void handleMove (Move m) throws InvalideMoveException{
         ArrayList<Move> moves = getMoves();
-        if (moves.contains(m)) {
-            state.handleMove(m);
-            this.whitesTurn = !whitesTurn;
+        for (int i = 0; i < moves.size(); i++) {
+            if (moves.get(i).compareTo(m) == 0){
+                state.handleMove(m);
+                this.whitesTurn = !whitesTurn;
+                return;
+            }
         }
-        else throw new InvalideMoveException();
+        throw new InvalideMoveException();
     }
 
 
@@ -40,11 +43,15 @@ public class Board{
                 }
             }
         }
+
+        /*
         for (int i = 0; i < list.size(); i++) {
             list.get(i).transformToInOut();
             System.out.println(list.get(i).toString());
             list.get(i).transformToSystem();
         }
+        */
+       
         return list;
     }
 

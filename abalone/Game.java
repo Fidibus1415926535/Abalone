@@ -31,12 +31,12 @@ public class Game{
 
             if (sphereCount != 1) {
                 System.out.print("In welche Richtung muss man von deiner ersten " +
-                "Kugel aus gehen um die anderen zu erreichen? (0: UL, 1: UR, 2: L, 3: D, 4: DL, 5: DR) >>> ");
+                "Kugel aus gehen um die anderen zu erreichen? (0: UL, 1: UR, 2: L, 3: R, 4: DL, 5: DR) >>> ");
                 dSpheres = Direction.values()[sc.nextInt()];
             } 
 
             System.out.print("In welche Richtung möchtest du ziehen?" + 
-            "(0: UL, 1: UR, 2: L, 3: D, 4: DL, 5: DR) >>> ");
+            "(0: UL, 1: UR, 2: L, 3: R, 4: DL, 5: DR) >>> ");
 
             Direction dMove = Direction.values()[sc.nextInt()];
 
@@ -45,6 +45,7 @@ public class Game{
             move.transformToSystem();
             try {
                 board.handleMove(move);
+                System.out.println(this.board.toString());
             }
             catch (InvalideMoveException e){
                 System.out.println("Dieser Move ist nicht valide");
