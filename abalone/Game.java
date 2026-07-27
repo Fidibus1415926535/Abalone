@@ -30,9 +30,8 @@ public class Game{
             Direction dSpheres = null;
 
             if (sphereCount != 1) {
-                System.out.print("In welche Richtung muss man von deiner ersten " +
-                "Kugel aus gehen um die anderen zu erreichen? (0: UL, 1: UR, 2: L, 3: R, 4: DL, 5: DR) >>> ");
-                dSpheres = Direction.values()[sc.nextInt()];
+                System.out.print("Connector: (Bitte nichts falsches eingeben) (0: R, 1: DL, 2: DR)>>> ");
+                dSpheres = Direction.values()[sc.nextInt() + 3];
             } 
 
             System.out.print("In welche Richtung möchtest du ziehen?" + 

@@ -5,7 +5,7 @@ public class Main{
         game.run();
         //movetests();
     }
-
+    
     private static void movetests(){
         Move move = new Move(1, new Point(2, 6) , Direction.UL, null, false);
         System.out.println(move);
