@@ -1,4 +1,5 @@
-2: Direction Point offset fixen: Funktioniert im moment nur für die obere Spielfeldhälfte
+2: Wenn eine Reihe sowohl in der oberen als auch in der unteren hälfte ist, müssen verschiedene
+offset vektoren applied werden
 3: Tripple Move einfügen (detection und handling)
 4: Testen ob alle moves gefunden werden und richtig ausgeführt werden
 5: Stellungsevaluation

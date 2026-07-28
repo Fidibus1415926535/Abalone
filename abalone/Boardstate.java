@@ -39,7 +39,7 @@ public class Boardstate{
         m.transformToSystem();
 
         Point oldCoords = m.s1;
-        Point offset = m.dMove.getPoint();
+        Point offset = m.dMove.getPoint(m.s1.y);
         Piece oldPiece = this.state[oldCoords.y][oldCoords.x];
         this.state[oldCoords.y][oldCoords.x] = Piece.EMPTY;
         if (this.state[oldCoords.y + offset.y][oldCoords.x + offset.x] != Piece.OUT){ //Only replaces if target wasnt out
